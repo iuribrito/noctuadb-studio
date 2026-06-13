@@ -1,81 +1,76 @@
-  ---
+# NoctuaDB Studio
 
-  # NoctuaDB Studio
+A desktop database client focused on simplicity. An alternative to DataGrip and TablePlus.
 
-  A desktop database client focused on simplicity.
-  Built with [Wails](https://wails.io/) (Go + Svelte 5).
+![License](https://img.shields.io/github/license/iuribrito/noctuadb-studio)
+![Release](https://img.shields.io/github/v/release/iuribrito/noctuadb-studio)
+![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20macOS%20%7C%20Windows-blue)
 
-  ![NoctuaDB Studio](https://raw.githubusercontent.com/iuribrito/noctuadb-studio/appicon.png)
+---
 
-  ## Features
+## Supported Databases
 
-  - **Multi-connection** — manage multiple database connections simultaneously, each with its own color and isolated session
-  - **Query editor** — CodeMirror 6 with MySQL syntax highlighting, schema-aware autocomplete, and SQL formatter
-  - **Table browser** — paginated table view with inline editing, visual filter builder, and virtual scrolling
-  - **SSH tunnel** — connect to databases behind SSH bastions using key or password authentication
-  - **Schema explorer** — view and edit tables, indexes, triggers, foreign keys, views, and stored procedures/functions
-  - **Admin panel** — server status, process list, user management, and variables viewer
-  - **Query history** — searchable log of all executed queries with duration and row count
-  - **Import** — CSV and JSON import with column mapping
-  - **Export** — CSV and JSON export with streaming for large datasets
+| Database | Features |
+|---|---|
+| **MySQL / MariaDB** | Query editor, table browser, schema editor, triggers, procedures, functions, admin panel, ER diagram, import/export, dump/restore |
+| **PostgreSQL** | Query editor, table browser, schema editor, ER diagram, import/export |
+| **SQLite** | Query editor, table browser, schema editor (supported ALTER subset), import/export |
+| **MongoDB** | Document browser, aggregation pipeline editor, index management, schema inference |
+| **Redis** | Key browser (all types), CLI REPL, TTL management, database selector |
 
-  ## Download
+---
 
-  Go to the [Releases](../../releases) page and download the file for your platform:
+## Features
 
-  | Platform | File |
-  |---|---|
-  | Linux x86_64 | `NoctuaDB-Studio-<version>-linux-x86_64.AppImage` |
-  | macOS Apple Silicon (M1/M2/M3) | `NoctuaDB-Studio-<version>-macos-arm64.dmg` |
-  | Windows x86_64 (installer) | `NoctuaDB-Studio-<version>-windows-x86_64-installer.exe` |
-  | Windows x86_64 (portable) | `NoctuaDB-Studio-<version>-windows-x86_64.exe` |
+- **Multi-connection** — manage multiple connections simultaneously, each with its own color and tab set
+- **Query editor** — CodeMirror 6 with syntax highlighting, schema-aware autocomplete, and SQL formatter
+- **Table browser** — virtual scroll, inline editing, visual filter builder, server-side pagination, column manager
+- **Schema administration** — visual table editor, trigger/routine modals, structure viewer, ER diagram
+- **Query history** — last 500 queries with search, per-connection
+- **SSH tunnel** — password or key-based auth for all database types
+- **SSL/TLS** — skip-verify, require, verify-ca, verify-full modes
+- **Import / Export** — CSV and JSON import with column mapping; streaming export (O(1) memory)
+- **Dump / Restore** — SQL dump with table selection and SQL restore with execution log
+- **Schema diff** — side-by-side comparison between two databases
+- **Charts** — bar, line, and pie charts from query results
+- **Command palette** — Ctrl+P quick-jump to any table or collection
+- **Snippets** — categorized SQL snippet library
+- **Dark and light themes** — Catppuccin Mocha / Latte
 
-  ### Linux
+---
 
-  Requires `libwebkit2gtk-4.1` installed on the system:
+## Installation
 
-  ```bash
-  # Ubuntu / Debian
-  sudo apt install libwebkit2gtk-4.1-0
+Download the latest release for your platform from the [Releases](https://github.com/iuribrito/noctuadb-studio/releases) page.
 
-  # Fedora
-  sudo dnf install webkit2gtk4.1
+### Linux
 
-  # Arch Linux
-  sudo pacman -S webkit2gtk-4.1
+```bash
+chmod +x noctuadb-studio
+./noctuadb-studio
+```
 
-  After downloading, make the AppImage executable and run it:
+> **Requirement:** `webkit2gtk` must be installed.
+>
+> Debian / Ubuntu:
+> ```bash
+> sudo apt install libwebkit2gtk-4.1-0
+> ```
+> Arch:
+> ```bash
+> sudo pacman -S webkit2gtk-4.1
+> ```
 
-  chmod +x NoctuaDB-Studio-*.AppImage
-  ./NoctuaDB-Studio-*.AppImage
+### macOS
 
-  macOS
+Open the `.dmg`, drag **NoctuaDB Studio** to Applications, then open it. If macOS blocks the app on first launch, go to **System Settings → Privacy & Security** and click **Open Anyway**.
 
-  Open the .dmg, drag the app to Applications, and run it.
-  On first launch macOS may block the app — go to System Settings → Privacy & Security and click Open Anyway.
+### Windows
 
-  Windows
+Run the `.exe` installer and follow the setup wizard.
 
-  Run the installer (recommended) or the portable .exe directly.
+---
 
-  Supported Databases
+## License
 
-  ┌─────────────────┬──────────────┐
-  │    Database     │    Status    │
-  ├─────────────────┼──────────────┤
-  │ MySQL / MariaDB │ ✅ Supported │
-  ├─────────────────┼──────────────┤
-  │ PostgreSQL      │ 🚧 Planned   │
-  ├─────────────────┼──────────────┤
-  │ SQLite          │ 🚧 Planned   │
-  ├─────────────────┼──────────────┤
-  │ MongoDB         │ 🚧 Planned   │
-  ├─────────────────┼──────────────┤
-  │ Redis           │ 🚧 Planned   │
-  └─────────────────┴──────────────┘
-
-  License
-
-  MIT
-
-  ---
+[MIT](LICENSE)
