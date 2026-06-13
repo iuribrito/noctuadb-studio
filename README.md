@@ -1,6 +1,6 @@
 # NoctuaDB Studio
 
-A desktop database client focused on simplicity. An alternative to DataGrip and TablePlus.
+A desktop database client focused on simplicity.
 
 ![License](https://img.shields.io/github/license/iuribrito/noctuadb-studio)
 ![Release](https://img.shields.io/github/v/release/iuribrito/noctuadb-studio)
